@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>User Info</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- Include _menu.html -->
+    <!-- <th:block th:include="/_menu"></th:block> -->
+
+    <th:block th:include="fragments/header :: header"></th:block>
+    <h3>Welcome :
+        <span th:utext="${#request.userPrincipal.name}"></span>
+    </h3>
+    
+    <div class="container">
+        <div>
+            <h2>Personal Information</h2>
+            <table class="table table-striped">
+                <tr>
+                	<th>Nick Name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                </tr>
+                <tr>
+                    <td th:text="${user.nickName}"></td>
+                    <td th:text="${user.firstName}"></td>
+                    <td th:text="${user.lastName}"></td>
+                     <td th:text="${user.email}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- <div th:if="${userInfo != null}" th:utext="${userInfo}"></div> -->
+
+</body>
+
+</html>
