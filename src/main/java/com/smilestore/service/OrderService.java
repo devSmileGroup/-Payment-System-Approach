@@ -21,6 +21,7 @@ public class OrderService {
 	}
 
 	public Order save(Order order) {
+		order.setTotalPrice(order.getProduct().getPrice() * order.getCount());
 		return orderRepository.save(order);
 	}
 

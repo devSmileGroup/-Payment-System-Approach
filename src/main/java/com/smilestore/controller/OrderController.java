@@ -62,7 +62,7 @@ public class OrderController {
 	public RedirectView createOrder(Order order, Principal principal, RedirectAttributes attributes) {		
 		User loginedUser = (User) ((Authentication) principal).getPrincipal();
 		com.smilestore.model.User user = userService.getUserByNickName(loginedUser.getUsername());
-		
+
 		order.setUser(user);
 		Order newOrder =  orderService.save(order);
 		attributes.addFlashAttribute("order", newOrder);		
