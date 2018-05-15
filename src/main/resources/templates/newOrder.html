@@ -28,6 +28,7 @@
 			<tr>
 				<td th:text="${order.product.name}"></td>
 				<td id="product_price" th:text="${order.product.price}"></td>
+
 				<td th:text="${order.product.tax}"></td>
 				<td th:text="..."></td>
 				<td th:text="..."></td>
@@ -39,6 +40,7 @@
 			<form name="order" autocomplete="off" action="#" th:action="@{/order/new}"
 				th:object="${order}" method="post" class="form-horizontal"
 				role="form">
+
 
 				<div class="form-group">
 					<div class="col-sm-9">
@@ -60,7 +62,9 @@
 
 				<div class="form-group">
 					<div class="col-sm-9">
-						<input  name="count" id="count" type="number" th:field="*{count}" placeholder="Count"
+
+						<input type="number" th:field="*{count}" placeholder="Count"
+
 							class="form-control" /> <label
 							th:if="${#fields.hasErrors('count')}" th:errors="*{count}"
 							class="validation-message"></label>
@@ -69,21 +73,15 @@
 
 				<div class="form-group">
 					<div class="col-sm-9">
-						<input name="totalPrice" id="totalPrice" type="hidden" th:field="*{totalPrice}" placeholder="TotalPrice"
-							class="form-control" /> <label
-							th:if="${#fields.hasErrors('totalPrice')}" th:errors="*{totalPrice}"
-							class="validation-message"></label>
-					</div>
-				</div>
 
-				<div class="form-group">
-					<div class="col-sm-9">
 						<button type="submit" class="btn btn-success">Create
 							Order</button>
 					</div>
 				</div>
 
 				<span th:utext="${successMessage}"></span>
+
+
 
 			</form>
 		</div>
