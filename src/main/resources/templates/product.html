@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title th:utext="${title}"></title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<!-- Include _menu.html -->
+	<!-- <th:block th:include="/_menu"></th:block> -->
+
+	<th:block th:include="fragments/header :: header"></th:block>
+	<div class="container">
+		<div th:if="${not #lists.isEmpty(products)}">
+			<h2>Product List</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Price</th>
+					<th>Tax</th>
+					<th>Category</th>
+					<th>Specification</th>
+					<th>Description</th>
+					<th>Buy</th>
+				</tr>
+				<tr th:each="product : ${products}">
+					<td th:text="${product.id}"></td>
+					<td th:text="${product.name}"></td>
+					<td th:text="${product.price}"></td>
+					<td th:text="${product.tax}"></td>
+					<td th:text="..."></td>
+					<td th:text="..."></td>
+					<td th:text="${product.description}"></td>
+					
+					<td th:if="${#request.userPrincipal != null}">
+						<a th:href="@{/order/new(product_id=${product.id})}">Buy</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>
