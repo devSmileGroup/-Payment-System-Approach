@@ -27,7 +27,8 @@
 			</tr>
 			<tr>
 				<td th:text="${order.product.name}"></td>
-				<td id = "product_price" th:text="${order.product.price}"></td>
+				<td id="product_price" th:text="${order.product.price}"></td>
+
 				<td th:text="${order.product.tax}"></td>
 				<td th:text="..."></td>
 				<td th:text="..."></td>
@@ -36,7 +37,7 @@
 		</table>
 
 		<div class="col-md-6 col-md-offset-3">
-			<form autocomplete="off" action="#" th:action="@{/order/new}"
+			<form name="order" autocomplete="off" action="#" th:action="@{/order/new}"
 				th:object="${order}" method="post" class="form-horizontal"
 				role="form">
 
@@ -61,7 +62,9 @@
 
 				<div class="form-group">
 					<div class="col-sm-9">
+
 						<input type="number" th:field="*{count}" placeholder="Count"
+
 							class="form-control" /> <label
 							th:if="${#fields.hasErrors('count')}" th:errors="*{count}"
 							class="validation-message"></label>
@@ -70,22 +73,13 @@
 
 				<div class="form-group">
 					<div class="col-sm-9">
+
 						<button type="submit" class="btn btn-success">Create
 							Order</button>
 					</div>
 				</div>
 
 				<span th:utext="${successMessage}"></span>
-
-				<script>
-					var first_number = parseInt(document
-							.getElementById("product_price").value);
-					var second_number = parseInt(document
-							.getElementById("Text2").value);
-					var result = first_number + second_number;
-
-					document.getElementById("txtresult").value = result;
-				</script>
 
 
 

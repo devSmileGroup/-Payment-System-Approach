@@ -17,7 +17,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">My project</a>
+                <a class="navbar-brand" href="#">SmileStore</a>
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -25,13 +26,14 @@
                         <a href="#" th:href="@{/}">Home</a>
                     </li>
                     <li>
-                        <a th:href="@{/user/info}">User Info</a>
+                        <a th:href="@{/profile/info}">User Info</a>
                     </li>
                     <li>
-                        <a th:href="@{/admin}">Admin</a>
+                        <a th:href="@{/admin/info}">Admin</a>
                     </li>
                     <li>
-                        <a th:if="${#request.userPrincipal != null}" th:href="@{/chart}">Show Chart</a>
+                        <a th:if="${#request.userPrincipal != null}" th:href="@{/chart/}">Show Chart</a>
+
                     </li>
                     
                     <li>
@@ -42,7 +44,8 @@
                         <a th:if="${#request.userPrincipal != null}" th:href="@{/order/user}">My Orders</a>
                     </li>
                     <li>
-                        <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a>
+                        <a th:if="${#request.userPrincipal != null}" th:href="@{/auth/logout}">Logout</a>
+
                     </li>
                 </ul>
             </div>
